@@ -2,6 +2,11 @@
 
 ## This repo is just for a simple Krita pligin, based on webui code
 
+## Example
+
+https://user-images.githubusercontent.com/112324253/187082905-1b41816e-1705-433b-8ba2-06b78f79c920.mp4
+
+
 ## Usage
 
 1. Start krita.cmd
