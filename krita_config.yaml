@@ -1,0 +1,58 @@
+txt2img:
+  prompts:
+    "scifi concept art of a futuristic city near to a big lake by greg rutkowski, cumulonimbus clouds, sunset, nostalgic, very very very beautiful art, cinematic lighting, bright pastel color, blue sky"
+  sampler_name: k_euler_a
+  # sampler_name: k_dpm_2_a
+  # sampler_name: k_lms
+  ddim_steps: 15
+  cfg_scale: 7.5
+  n_iter: 1
+  seed: ''
+  base_size: 512
+  max_size: 704
+  sample_path: 'krita/output'
+
+  normalize_prompt_weights: true
+  use_gfpgan: false
+  use_realesrgan: false
+  # realesrgan_model_name: RealESRGAN_x4plus
+  realesrgan_model_name: RealESRGAN_x4plus_anime_6B
+  ddim_eta: 0.0
+  batch_size: 1
+
+img2img:
+  prompts:
+    "portrait of beautiful female, blonde hair, feminine, mature, beautiful, upper body": 2
+    "intricate, elegant, highly detailed, digital painting, artstation, concept art, smooth, sharp focus, illustration": 2
+    "art by gaston bussiere and alphonse mucha": 2
+  # sampler_name: k_euler_a
+  # sampler_name: k_dpm_2_a
+  sampler_name: k_lms
+  ddim_steps: 50
+  cfg_scale: 7.0
+  denoising_strength: 0.55
+  n_iter: 1
+  seed: ''
+  base_size: 512
+  max_size: 704
+  sample_path: 'krita/output'
+
+  normalize_prompt_weights: true
+  use_gfpgan: false
+  use_realesrgan: false
+  # realesrgan_model_name: RealESRGAN_x4plus
+  realesrgan_model_name: RealESRGAN_x4plus_anime_6B
+  batch_size: 1
+  resize_mode: 'Just resize'
+
+upscale:
+  # realesrgan_model_name: RealESRGAN_x4plus
+  realesrgan_model_name: RealESRGAN_x4plus_anime_6B
+  base_size: 512
+  max_size: 1024
+  sample_path: 'krita/output'
+
+plugin:
+  sample_path: 'krita/input'
+  new_layer: false
+  png_quality: -1
