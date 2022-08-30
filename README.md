@@ -12,9 +12,10 @@ https://user-images.githubusercontent.com/112324253/187082905-1b41816e-1705-433b
 1. Start krita.cmd
 2. Open Krita
 3. Select area you want to use. If you have no selection, whole image will be used
-4. Press Ctrl + Alt + Q (txt2img) or Ctrl + Alt + W (img2img)
-5. Look at progress bar in your server console window
-6. Plugin will insert generated images as new layers into Krita. Only last one will be set visible. Selection will be
+4. Configure SD options in "SD Plugin" docker on the left (you may need to activate it in Settings - Dockers - SD Plugin) 
+5. Press Ctrl + Alt + Q (txt2img) or Ctrl + Alt + W (img2img)
+6. Look at progress bar in your server console window
+7. Plugin will insert generated images as new layers into Krita. Only last one will be set visible. Selection will be
    converted into transparency mask on the last layer.
 
 Image in Krita has to be RGBA 8bit, you need to select some layer to proceed. Plugin uses merged image as a source for img2img.
@@ -58,6 +59,12 @@ Now you must have 3 menu entries in Tools - Scripts:
 - Apply upscale transform - Ctrl + Alt + E
 
 You may alter shortcuts in Krita config as usual.
+
+### Update instructions
+1. git pull this repo
+2. Restart krita.cmd (server part). It should trigger conda update just like in webui.
+3. Copy contents of folder `krita/plugin` into `pykrita` folder, replacing older version
+4. Restart Krita
 
 ### Server part
 
