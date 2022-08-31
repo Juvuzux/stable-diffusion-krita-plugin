@@ -85,7 +85,15 @@ Edit this file to change prompt or other options
 
 ### Prompt
 
-There are 3 formats for prompt in yaml:
+#### UI
+Ui supports the same prompt formats as webui, except they can be multiline. For multiline prompts new line is converted to ', '. Just like in webui you can use weighted prompts in format
+```
+first prompt: 3
+second prompt: 2
+```
+
+#### krita_config.yaml
+You should not probably use it, because prompt can be entered in Krita. There are 3 formats for prompt in yaml:
 
 - Simple string
 

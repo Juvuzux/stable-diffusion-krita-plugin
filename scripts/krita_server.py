@@ -105,6 +105,9 @@ class Txt2ImgRequest(BaseModel):
     use_realesrgan: Optional[bool]
     realesrgan_model: Optional[str]
 
+    variant_amount: Optional[float]
+    variant_seed: Optional[int]
+
 
 class Img2ImgRequest(BaseModel):
     src_path: str
@@ -146,6 +149,7 @@ async def f_txt2img(req: Txt2ImgRequest):
         ddim_steps=req.ddim_steps or opt['ddim_steps'],
         sampler_name=req.sampler_name or opt['sampler_name'],
         toggles=[1 if req.normalize_prompt_weights or opt['normalize_prompt_weights'] else None,
+                 2, # it's skip_save, without it webui will not output any image
                  4 if req.use_gfpgan or opt['use_gfpgan'] else None,
                  5 if req.use_realesrgan or opt['use_realesrgan'] else None],
         realesrgan_model_name=req.realesrgan_model or opt['realesrgan_model_name'],
@@ -156,7 +160,9 @@ async def f_txt2img(req: Txt2ImgRequest):
         seed=req.seed or opt['seed'],
         height=height,
         width=width,
-        fp=None
+        fp=None,
+        variant_amount=req.variant_amount or opt['variant_amount'],
+        variant_seed=req.variant_seed or opt['variant_seed']
     )
 
     sample_path = opt['sample_path']
@@ -186,6 +192,7 @@ async def f_img2img(req: Img2ImgRequest):
         ddim_steps=req.ddim_steps or opt['ddim_steps'],
         sampler_name=req.sampler_name or opt['sampler_name'],
         toggles=[1 if req.normalize_prompt_weights or opt['normalize_prompt_weights'] else None,
+                 4, # it's skip_save, without it webui will not output any image
                  6 if req.use_gfpgan or opt['use_gfpgan'] else None,
                  7 if req.use_realesrgan or opt['use_realesrgan'] else None],
         realesrgan_model_name=req.realesrgan_model or opt['realesrgan_model_name'],

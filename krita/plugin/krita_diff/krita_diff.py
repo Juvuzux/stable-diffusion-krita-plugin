@@ -412,7 +412,8 @@ class KritaSDPluginDocker(DockWidget):
 
     def connect_txt2img_interface(self):
         self.txt2img_prompt_text.textChanged.connect(
-            lambda: script.set_cfg("txt2img_prompt", re.sub(r'\n', ', ', self.txt2img_prompt_text.toPlainText()))
+            lambda: script.set_cfg("txt2img_prompt",
+                                   re.sub(r'\n', ', ', self.txt2img_prompt_text.toPlainText().strip()))
         )
         self.txt2img_sampler_name.currentIndexChanged.connect(
             partial(script.set_cfg, "txt2img_sampler")
@@ -557,7 +558,8 @@ class KritaSDPluginDocker(DockWidget):
 
     def connect_img2img_interface(self):
         self.img2img_prompt_text.textChanged.connect(
-            lambda: script.set_cfg("img2img_prompt", re.sub(r'\n', ', ', self.img2img_prompt_text.toPlainText()))
+            lambda: script.set_cfg("img2img_prompt",
+                                   re.sub(r'\n', ', ', self.img2img_prompt_text.toPlainText().strip()))
         )
         self.img2img_sampler_name.currentIndexChanged.connect(
             partial(script.set_cfg, "img2img_sampler")
