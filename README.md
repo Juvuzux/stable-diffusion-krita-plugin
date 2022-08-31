@@ -93,7 +93,7 @@ second prompt: 2
 ```
 
 #### krita_config.yaml
-You should not probably use it, because prompt can be entered in Krita. There are 3 formats for prompt in yaml:
+If you want, you may use yaml for prompts. Just leave prompt field empty in Krita plugin docker, then value from krita_config.yaml config will be used. There are 3 formats for prompt in yaml:
 
 - Simple string
 
